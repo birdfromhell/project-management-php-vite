@@ -1,81 +1,142 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@php
+$configData = Helper::appClasses();
+@endphp
 
-        <title>{{ $title }}</title>
+@extends('layouts/layoutMaster')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+@section('title', 'Home')
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-
-            <div class="content">
-                <div class="title m-b-md">
-                    {{ $title }}
-                </div>
-
-                <div class="links">
-                    <a href="{{ url('/')}}">Wellcome</a>
-                    <a href="{{ url('/home')}}">Dasboard</a>
-                    <a href="{{ url('/login')}}">Login</a> 
-                </div>
-            </div>
+@section('content')
+<nav class="navbar navbar-light bg-white">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="javascript:void(0);">Navbar</a>
+  </div>
+</nav>
+<div class="table-responsive text-nowrap">
+ <table class="table">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Client</th>
+      <th>Users</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody class="table-border-bottom-0">
+    <tr>
+      <td><i class="ri-suitcase-2-line ri-22px text-danger me-4"></i><span class="fw-medium">Tours Project</span></td>
+      <td>Albert Cook</td>
+      <td>
+        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+          <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up"
+          title="Lilian Fuller">
+          <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle">
+        </li>
+        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
+          <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle">
+        </li>
+        <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Christina Parker">
+          <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle">
+        </li>
+      </ul>
+    </td>
+    <td><span class="badge rounded-pill bg-label-primary me-1">Active</span></td>
+    <td>
+      <div class="dropdown">
+        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ri-more-2-line"></i></button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="javascript:void(0);"><i class="ri-pencil-line me-1"></i> Edit</a>
+          <a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-7-line me-1"></i> Delete</a>
         </div>
-    </body>
-</html>
+      </div>
+    </td>
+    </tr>
+    <tr>
+      <td><i class="ri-basketball-fill ri-22px text-info me-4"></i><span class="fw-medium">Sports Project</span></td>
+      <td>Barry Hunter</td>
+      <td>
+        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+          <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
+            <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle">
+          </li>
+          <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
+            <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle">
+          </li>
+          <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Christina Parker">
+            <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle">
+          </li>
+        </ul>
+      </td>
+      <td><span class="badge rounded-pill bg-label-success me-1">Completed</span></td>
+      <td>
+        <div class="dropdown">
+          <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ri-more-2-line"></i></button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="javascript:void(0);"><i class="ri-pencil-line me-2"></i> Edit</a>
+            <a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-7-line me-2"></i> Delete</a>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><i class="ri-leaf-fill ri-22px text-success me-4"></i><span class="fw-medium">Greenhouse Project</span></td>
+      <td>Trevor Baker</td>
+      <td>
+        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+          <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
+            <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle">
+          </li>
+          <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
+            <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle">
+          </li>
+          <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Christina Parker">
+            <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle">
+          </li>
+        </ul>
+      </td>
+      <td><span class="badge rounded-pill bg-label-info me-1">Scheduled</span></td>
+      <td>
+        <div class="dropdown">
+          <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ri-more-2-line"></i></button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="javascript:void(0);"><i class="ri-pencil-line me-2"></i> Edit</a>
+            <a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-7-line me-2"></i> Delete</a>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><i class="ri-bank-fill ri-22px text-primary me-4"></i><span class="fw-medium">Bank Project</span></td>
+      <td>Jerry Milton</td>
+      <td>
+        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+          <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
+            <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle">
+          </li>
+          <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
+            <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle">
+          </li>
+          <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Christina Parker">
+            <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle">
+          </li>
+        </ul>
+      </td>
+      <td><span class="badge rounded-pill bg-label-warning me-1">Pending</span></td>
+      <td>
+        <div class="dropdown">
+          <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ri-more-2-line"></i></button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="javascript:void(0);"><i class="ri-pencil-line me-2"></i> Edit</a>
+            <a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-7-line me-2"></i> Delete</a>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+ </table>
+</div>
+
+<h4>Home Page</h4>
+<p>For more layout options refer <a href="{{ config('variables.documentation') ? config('variables.documentation').'/laravel-introduction.html' : '#' }}" target="_blank" rel="noopener noreferrer">documentation</a>.</p>
+@endsection
